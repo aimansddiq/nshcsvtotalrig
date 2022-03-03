@@ -25,7 +25,7 @@ import requests
 
 # if you are using multiple files in a single folder enable this instead
 # path = askdirectory(title ='Select Folder') #if you want to use prompt
-path = "C:/Users/AIMAN/Downloads"  # if you dont want to use prompt
+path = ""  # if you dont want to use prompt
 # --------------------------------------
 
 # variables
@@ -68,8 +68,8 @@ def insert_into(link,page):
 def send_discord(total):
     date_min = (today - timedelta(days=1)).strftime('%d-%m-%Y')
     message = "\nUPDATED FOR "+date_min+"\n"+link
-    channel_id = 756761323593007194
-    token = "NzAxMDM2OTQxMjEwMjg4MTU4.Xprphw.1UcLlS-76MWpQWmLfpxWC4LD3ec"
+    channel_id = ""
+    token = ""
     client = discord.Client()
 
     @client.event
@@ -105,7 +105,7 @@ mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database="lasthopemining"
+    database=""
 )
 mycursor = mydb.cursor(dictionary=True)
 mycursor.execute("SELECT * FROM worker, miner WHERE worker.miner = miner.name")
@@ -139,12 +139,6 @@ print('')
 print(date_min, '-', date_max, '\n')
 
 discord_ids = {
-    "Harith": '<@286243149032980480>',
-    "Bada" : '<@263117794806071296>',
-    "Imam": '<@312210250465935361>',
-    "Danial": '<@367700222517968896>',
-    "Mija": '<@310414485552889857>',
-    "Aiman": '<@130736886074441728>'
 }
 
 text = ""
@@ -175,11 +169,6 @@ for i in range(len(totalmined)):
             pass
         mydb.commit()
 clipboard = clipboard[:-1]
-print(clipboard)
-link = 'https://lasthopemining.000webhostapp.com/'
-
-insert_into(link,'action.php')
-
 total_day = 0
 
 for x in totalmined:
@@ -187,12 +176,3 @@ for x in totalmined:
 
 
 print("Mined recorded")
-
-# send message to discord
-# ------------------------
-send_discord(total_day)
-
-webbrowser.open(link)
-webbrowser.open("https://www.nicehash.com/my/dashboard")
-webbrowser.open("https://shopee.com.my/shopee-coins/")
-webbrowser.open("https://www.powerlanguage.co.uk/wordle/")
