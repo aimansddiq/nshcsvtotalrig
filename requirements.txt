@@ -1,0 +1,2 @@
+forex_python==1.6
+nicehash==0.0.3
